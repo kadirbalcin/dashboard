@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Moon, Sun, Cpu, Activity } from "lucide-react";
 
-axios.defaults.baseURL = "http://localhost:5000"; // backend baseURL
+axios.defaults.baseURL = "http://localhost:6236"; // backend baseURL
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 export default function Dashboard() {
@@ -23,7 +23,7 @@ export default function Dashboard() {
 
   // SSE bağlantısı
   useEffect(() => {
-    const es = new EventSource("http://localhost:5000/events");
+    const es = new EventSource("http://localhost:6236/events");
     es.onmessage = (e) => setStatus(JSON.parse(e.data));
     es.onerror = () => console.log("SSE reconnecting...");
     return () => es.close();
