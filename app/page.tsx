@@ -252,7 +252,7 @@ export default function Dashboard() {
 
               <div className="flex-1 overflow-auto bg-black/40 rounded p-3">
                 {(status.processes[selectedProject.name]?.stdout || []).map(
-                  (line, i) => (
+                  (line: any, i: any) => (
                     <pre key={i} className="whitespace-pre-wrap">
                       {line}
                     </pre>
